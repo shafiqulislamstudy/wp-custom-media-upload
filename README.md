@@ -27,20 +27,24 @@ HTML Part:
 
 JS Part:
 
-jQuery(document).ready(function(){
 
-jQuery('#btnUpload').on("click",function(){
-	var image = wp.media({
-		title:'Custom image',
-		multiple: false
-	}).open().on('select',function(){
-		var attachment = image.state().get('selection').first().toJSON().url;
 
-		console.log(attachment);
 
-		jQuery('#previewImg').html("<img src='"+attachment+"' style='height:100px;width:100px;'>");
-		jQuery('#getImg').val(attachment)
+
+	jQuery(document).ready(function(){
+	
+	jQuery('#btnUpload').on("click",function(){
+		var image = wp.media({
+			title:'Custom image',
+			multiple: false
+		}).open().on('select',function(){
+			var attachment = image.state().get('selection').first().toJSON().url;
+
+			console.log(attachment);
+
+			jQuery('#previewImg').html("<img src='"+attachment+"' style='height:100px;width:100px;'>");
+			jQuery('#getImg').val(attachment)
+		});
+		});
+
 	});
-});
-
-});
